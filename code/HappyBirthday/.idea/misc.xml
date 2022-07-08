@@ -9,7 +9,7 @@
         <entry key="app/src/main/res/drawable/cl_rounded_corners.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="app/src/main/res/layout/donut_recycler.xml" value="0.2171875" />
-        <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.275013427734375" />
+        <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.25" />
       </map>
     </option>
   </component>
