@@ -7,7 +7,7 @@ import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.example.happybirthday.databinding.FragmentSplashBinding
 
-const val SPLASH_TIMER_DURATION = 3000L
+const val SPLASH_TIMER_DURATION = 4500L
 
 class SplashActivity : AppCompatActivity() {
 
@@ -16,6 +16,7 @@ class SplashActivity : AppCompatActivity() {
         val binding = FragmentSplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
         splashTimer()
+        animateLoadingText(binding = binding)
     }
 
     private fun splashTimer() {
@@ -29,5 +30,10 @@ class SplashActivity : AppCompatActivity() {
         val intent = Intent(splashActivity, MainActivity::class.java)
         startActivity(intent)
         finish()
+    }
+
+    private fun animateLoadingText(binding: FragmentSplashBinding) {
+        binding.twLoadingYourDonuts.setCharacterDelay(150)
+        binding.twLoadingYourDonuts.animateText("Loading Your Donuts")
     }
 }

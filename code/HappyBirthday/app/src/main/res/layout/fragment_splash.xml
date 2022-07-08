@@ -28,7 +28,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/tvAppName"
+            android:id="@+id/tvAppName."
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -43,8 +43,8 @@
             app:layout_constraintTop_toTopOf="parent"
             />
 
-        <TextView
-            android:id="@+id/tvLoadingYourDonuts"
+        <com.example.happybirthday.extension.TypeWriter
+            android:id="@+id/twLoadingYourDonuts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="40dp"
