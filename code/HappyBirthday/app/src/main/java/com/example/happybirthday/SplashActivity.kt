@@ -34,6 +34,6 @@ class SplashActivity : AppCompatActivity() {
 
     private fun animateLoadingText(binding: FragmentSplashBinding) {
         binding.twLoadingYourDonuts.setCharacterDelay(150)
-        binding.twLoadingYourDonuts.animateText("Loading Your Donuts")
+        binding.twLoadingYourDonuts.animateText("Loading Your Donuts...")
     }
 }
