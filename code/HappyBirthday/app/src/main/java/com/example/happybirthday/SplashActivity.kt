@@ -1,6 +1,7 @@
 package com.example.happybirthday
 
 import android.content.Intent
+import android.graphics.Typeface
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -23,9 +24,17 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun main(binding: FragmentSplashBinding) {
+        setFontOfText(binding = binding)
         splashTimer()
         startDonutAnimation(binding = binding)
         animateText(binding = binding)
+    }
+
+    private fun setFontOfText(binding: FragmentSplashBinding) {
+        val type = Typeface.createFromAsset(assets, "fonts/chewy.ttf")
+        binding.tvAppName.typeface = type
+        binding.twLoadingYourDonuts.typeface = type
+        binding.twLoadingYourDonuts2.typeface = type
     }
 
     private fun splashTimer() {
