@@ -29,7 +29,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/ivDonut"
             android:layout_width="283dp"
             android:layout_height="480dp"
             android:layout_marginVertical="100dp"
@@ -65,6 +65,23 @@
             android:padding="8dp"
             android:text="Loading Your Donuts..."
             android:textColor="#FFA221"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="TextContrastCheck" />
+
+        <com.example.happybirthday.extension.TypeWriter
+            android:id="@+id/twLoadingYourDonuts2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:fontFamily="@font/chewy"
+            android:padding="8dp"
+            android:text="Loading Your Donuts..."
+            android:textColor="#FFA221"
+            android:visibility="gone"
             android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
