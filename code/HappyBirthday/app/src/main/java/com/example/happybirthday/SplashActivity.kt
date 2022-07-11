@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.happybirthday.databinding.FragmentSplashBinding
 
 const val SPLASH_TIMER_DURATION = 4500L
+const val TYPEWRITER_CHARACTER_DELAY = 150L
 
 class SplashActivity : AppCompatActivity() {
 
@@ -33,7 +34,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun animateLoadingText(binding: FragmentSplashBinding) {
-        binding.twLoadingYourDonuts.setCharacterDelay(150)
-        binding.twLoadingYourDonuts.animateText("Loading Your Donuts...")
+        binding.twLoadingYourDonuts.setCharacterDelay(TYPEWRITER_CHARACTER_DELAY)
+        binding.twLoadingYourDonuts.animateText(application.getText(R.string.loading_your_donuts))
     }
 }
