@@ -7,12 +7,14 @@
     android:background="#FFFFFF"
     tools:context=".MainActivity">
 
-    <FrameLayout
-        android:id="@+id/bottom_nav"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fcvMain"
+        android:name="com.example.happybirthday.donutmap.DonutMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bnvMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -20,5 +22,6 @@
         app:itemBackground="@color/splashborder"
         app:itemIconTint="#fff"
         app:itemTextColor="#fff"
-        app:menu="@menu/bottom_navigation" />
+        app:menu="@menu/bottom_navigation"
+        />
 </RelativeLayout>

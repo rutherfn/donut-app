@@ -6,21 +6,21 @@
         <entry key="..\:/Users/aswhitea/AndroidStudioProjects/HappyBirthday/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.313" />
         <entry key="..\:/Users/aswhitea/AndroidStudioProjects/HappyBirthday/app/src/main/res/drawable/ic_launcher_background.xml" value="0.313" />
         <entry key="..\:/Users/aswhitea/AndroidStudioProjects/HappyBirthday/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/aswhitea/Desktop/donut-app/code/HappyBirthday/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/aswhitea/Desktop/donut-app/code/HappyBirthday/app/src/main/res/layout/fragment_donut_feed.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/aswhitea/Desktop/donut-app/code/HappyBirthday/app/src/main/res/layout/fragment_donut_map.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/aswhitea/Desktop/donut-app/code/HappyBirthday/app/src/main/res/layout/fragment_donut_rankings.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/aswhitea/Desktop/donut-app/code/HappyBirthday/app/src/main/res/layout/fragment_splash.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/aswhitea/Desktop/donut-app/code/HappyBirthday/app/src/main/res/menu/bottom_navigation.xml" value="0.26666666666666666" />
         <entry key="app/src/main/res/drawable/cl_rounded_corners.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_donut.xml" value="0.111" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.111" />
         <entry key="app/src/main/res/font/bubblegum_sans.xml" value="0.20555555555555555" />
         <entry key="app/src/main/res/font/chewy.xml" value="1.2262847900390628" />
         <entry key="app/src/main/res/font/lobster.xml" value="0.2140625" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/donut_recycler.xml" value="0.2171875" />
-        <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_donut_map.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/fragment_freed.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/fragment_rank_your_donuts.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/test_layout.xml" value="0.25" />
+        <entry key="app/src/main/res/menu/bottom_navigation.xml" value="0.2546875" />
+        <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.1" />
       </map>
     </option>
   </component>
