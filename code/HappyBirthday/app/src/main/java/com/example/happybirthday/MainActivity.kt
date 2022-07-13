@@ -6,6 +6,7 @@ import com.example.happybirthday.databinding.ActivityMainBinding
 import com.example.happybirthday.donutmap.DonutMapFragment
 import com.example.happybirthday.feed.FeedFragment
 import com.example.happybirthday.rankyourdonuts.RankYourDonutsFragment
+import com.example.happybirthday.splash.SplashFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         binding?.let { binding ->
             setContentView(binding.root)
-            launchDonutMap()
+            launchSplash()
             listenToBottomNavigation(binding = binding)
         }
     }
@@ -36,6 +37,12 @@ class MainActivity : AppCompatActivity() {
             }
             return@setOnItemSelectedListener true
         }
+    }
+
+    fun launchSplash() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fcvMain, SplashFragment::class.java, null)
+            .commit()
     }
 
     fun launchDonutMap() {
