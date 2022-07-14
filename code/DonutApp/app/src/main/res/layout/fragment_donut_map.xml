@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/splashborder"
+    android:background="@drawable/donut_shop_background"
     >
 
     <TextView
@@ -15,12 +15,13 @@
         android:fontFamily="@font/chewy"
         android:paddingTop="44dp"
         android:text="@string/located_donut_shops"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextContrastCheck" />
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/mvDonutShopMap"
@@ -51,9 +52,10 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/chewy"
         android:text="@string/radius_in_miles"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/sbRadius"
         app:layout_constraintStart_toStartOf="@+id/sbRadius"
-        app:layout_constraintTop_toBottomOf="@+id/sbRadius" />
+        app:layout_constraintTop_toBottomOf="@+id/sbRadius"
+        tools:ignore="TextContrastCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>
