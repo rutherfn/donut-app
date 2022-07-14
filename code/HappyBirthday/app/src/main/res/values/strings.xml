@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">Happy Birthday</string>
-    <string name="loading_your_donuts" translatable="false">Loading Your Donuts...</string>
-    <string name="located_donut_shops">Locate donut shops near you!</string>
-    <string name="cd_donut_map">Map that shows markers at donut shops</string>
-</resources>
