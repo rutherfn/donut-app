@@ -58,4 +58,13 @@
         app:layout_constraintStart_toStartOf="@+id/sbRadius"
         app:layout_constraintTop_toBottomOf="@+id/sbRadius"
         tools:ignore="TextContrastCheck" />
+
+    <Button
+        android:id="@+id/btnTest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="@+id/sbRadius"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mvDonutShopMap" />
 </androidx.constraintlayout.widget.ConstraintLayout>
