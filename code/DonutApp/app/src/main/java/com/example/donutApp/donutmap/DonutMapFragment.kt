@@ -59,15 +59,15 @@ class DonutMapFragment : Fragment(R.layout.fragment_donut_map), OnMapReadyCallba
             gMap.uiSettings.isMapToolbarEnabled = false
             gMap.uiSettings.isZoomControlsEnabled = true
 
-            val lat = -22.0
-            val long = 161.0
+            val lat = 43.038902
+            val long = -87.906471
             val sydney = LatLng(lat, long)
             gMap.addMarker(
                 MarkerOptions().position(sydney)
                     .title("Marker in Sydney") // below line is use to add custom marker on our map.
                     .icon(BitmapDescriptorFactory.fromResource(R.drawable.donutmarker))
             )
-            map.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+            gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(lat, long), 2.5f))
         }
     }
 }
