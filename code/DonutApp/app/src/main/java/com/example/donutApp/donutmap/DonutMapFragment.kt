@@ -1,70 +1,73 @@
 package com.example.donutApp.donutmap
 
-import android.Manifest
-import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
-import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import com.example.donutApp.R
 import com.example.donutApp.databinding.FragmentDonutMapBinding
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.MapsInitializer
+import com.google.android.gms.maps.*
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 
-class DonutMapFragment : Fragment(R.layout.fragment_donut_map) {
+class DonutMapFragment : Fragment(R.layout.fragment_donut_map), OnMapReadyCallback {
 
     private var binding: FragmentDonutMapBinding? = null
-    private var maps: GoogleMap? = null
+
+    private var googleMap: GoogleMap? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding = FragmentDonutMapBinding.bind(view)
         binding?.let { binding ->
-            checkLocationPermission(binding = binding, savedInstanceState = savedInstanceState)
+            binding.mvDonutShopMap.onCreate(savedInstanceState)
+            setUpMap()
+
+            binding.mvDonutShopMap.onResume()
         }
     }
 
-    fun checkLocationPermission(binding: FragmentDonutMapBinding, savedInstanceState: Bundle?) {
-        context?.let { context ->
-            if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                initializeMap(binding, savedInstanceState)
-            } else {
-//                requestPermissions(
-//                    arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
-            }
-        }
+    override fun onResume() {
+        super.onResume()
+        binding?.mvDonutShopMap?.onResume()
     }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    override fun onDestroy() {
+        super.onDestroy()
+
+        // We need to call MapView.onDestroy() when the view is destroyed,
+        // but the binding object is being destroyed at the same time.
+        // Save the MapView in its own object so that we can access it independently.
+        binding?.mvDonutShopMap?.onDestroy()
     }
 
-    fun initializeMap(binding: FragmentDonutMapBinding, savedInstanceState: Bundle?) {
-        binding.mvDonutShopMap.onCreate(savedInstanceState)
-        binding.mvDonutShopMap.getMapAsync {
-            maps = it
-            maps?.let { googleMap ->
-                println("gettt")
-                googleMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN)
-                googleMap.isMyLocationEnabled = true
-                googleMap.uiSettings.isMyLocationButtonEnabled = true
-                val latLng = LatLng(43.041069, -87.909416)
-                val yourLocation = CameraUpdateFactory.newLatLngZoom(latLng, 5f)
-                googleMap.animateCamera(yourLocation)
-                try {
-                    context?.let { context ->
-                        MapsInitializer.initialize(context)
-                        println("$googleMap.")
-                    }
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                }
-            }
+    override fun onLowMemory() {
+        super.onLowMemory()
+        binding?.mvDonutShopMap?.onLowMemory()
+    }
+
+    private fun setUpMap() {
+        MapsInitializer.initialize(requireActivity())
+
+        binding?.mvDonutShopMap?.getMapAsync(this)
+    }
+
+    override fun onMapReady(map: GoogleMap) {
+        googleMap = map
+        googleMap?.mapType = GoogleMap.MAP_TYPE_NORMAL
+
+        googleMap?.let { gMap ->
+            gMap.uiSettings.isMapToolbarEnabled = false
+            gMap.uiSettings.isZoomControlsEnabled = true
+
+            val lat = -22.0
+            val long = 161.0
+            val sydney = LatLng(lat, long)
+            gMap.addMarker(
+                MarkerOptions().position(sydney)
+                    .title("Marker in Sydney") // below line is use to add custom marker on our map.
+                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.donut))
+            )
+            map.moveCamera(CameraUpdateFactory.newLatLng(sydney))
         }
     }
 }

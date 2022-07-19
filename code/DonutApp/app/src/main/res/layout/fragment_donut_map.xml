@@ -25,6 +25,7 @@
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/mvDonutShopMap"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_marginBottom="140dp"
