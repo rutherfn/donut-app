@@ -65,7 +65,7 @@ class DonutMapFragment : Fragment(R.layout.fragment_donut_map), OnMapReadyCallba
             gMap.addMarker(
                 MarkerOptions().position(sydney)
                     .title("Marker in Sydney") // below line is use to add custom marker on our map.
-                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.donut))
+                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.donutmarker))
             )
             map.moveCamera(CameraUpdateFactory.newLatLng(sydney))
         }

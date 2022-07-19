@@ -11,9 +11,9 @@
         android:id="@+id/tvLocateShops"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/chewy"
-        android:paddingTop="44dp"
+        android:paddingTop="30dp"
         android:text="@string/located_donut_shops"
         android:textColor="#FFFFFF"
         android:textSize="28sp"
@@ -27,7 +27,8 @@
         android:id="@+id/mvDonutShopMap"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="100dp"
         android:layout_marginBottom="140dp"
         android:contentDescription="@string/cd_donut_map"
         android:importantForAccessibility="yes"
@@ -60,12 +61,4 @@
         app:layout_constraintTop_toBottomOf="@+id/sbRadius"
         tools:ignore="TextContrastCheck" />
 
-    <Button
-        android:id="@+id/btnTest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="@+id/sbRadius"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mvDonutShopMap" />
 </androidx.constraintlayout.widget.ConstraintLayout>
