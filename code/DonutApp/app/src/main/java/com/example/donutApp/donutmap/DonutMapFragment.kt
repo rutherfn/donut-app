@@ -1,20 +1,29 @@
 package com.example.donutApp.donutmap
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.donutApp.R
+import com.example.donutApp.data.DonutShopMapLocation
 import com.example.donutApp.databinding.FragmentDonutMapBinding
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import java.io.IOException
+
+const val FILE_NAME = "donut_locations.json"
 
 class DonutMapFragment : Fragment(R.layout.fragment_donut_map), OnMapReadyCallback {
 
     private var binding: FragmentDonutMapBinding? = null
 
     private var googleMap: GoogleMap? = null
+
+    private var donutShopMapLocationArrayList = arrayListOf<DonutShopMapLocation>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding = FragmentDonutMapBinding.bind(view)
@@ -51,6 +60,43 @@ class DonutMapFragment : Fragment(R.layout.fragment_donut_map), OnMapReadyCallba
         binding?.mvDonutShopMap?.getMapAsync(this)
     }
 
+    fun getJsonDataFromAsset(context: Context, fileName: String): String? {
+        val jsonString: String
+        try {
+            jsonString = context.assets.open(fileName).bufferedReader().use { it.readText() }
+        } catch (ioException: IOException) {
+            ioException.printStackTrace()
+            return null
+        }
+        return jsonString
+    }
+
+    fun plotMapMarkers(gMap: GoogleMap) {
+        this.context?.let { context ->
+
+            val jsonFileString = getJsonDataFromAsset(context = context, fileName = FILE_NAME)
+
+            val gson = Gson()
+            val donutShopMapLocations: List<DonutShopMapLocation> = gson.fromJson(jsonFileString, object : TypeToken<List<DonutShopMapLocation>>() {}.type)
+
+            donutShopMapLocations.forEach { donutShopMapLocation ->
+                donutShopMapLocation.lat?.let { lat ->
+                    donutShopMapLocation.long?.let { long ->
+                        donutShopMapLocation.donutShopName?.let { donutShopName ->
+                            val latLng = LatLng(lat.toDouble(), long.toDouble())
+                            gMap.addMarker(
+                                MarkerOptions().position(latLng)
+                                    .title(donutShopName) // below line is use to add custom marker on our map.
+                                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.donutmarker))
+                            )
+                            gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 2.5f))
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     override fun onMapReady(map: GoogleMap) {
         googleMap = map
         googleMap?.mapType = GoogleMap.MAP_TYPE_NORMAL
@@ -59,15 +105,7 @@ class DonutMapFragment : Fragment(R.layout.fragment_donut_map), OnMapReadyCallba
             gMap.uiSettings.isMapToolbarEnabled = false
             gMap.uiSettings.isZoomControlsEnabled = true
 
-            val lat = 43.038902
-            val long = -87.906471
-            val sydney = LatLng(lat, long)
-            gMap.addMarker(
-                MarkerOptions().position(sydney)
-                    .title("Marker in Sydney") // below line is use to add custom marker on our map.
-                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.donutmarker))
-            )
-            gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(lat, long), 2.5f))
+            plotMapMarkers(gMap = gMap)
         }
     }
 }
