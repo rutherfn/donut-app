@@ -1,6 +1,8 @@
 package com.example.donutApp.donutmap
 
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -97,6 +99,10 @@ class DonutMapFragment : Fragment(R.layout.fragment_donut_map), OnMapReadyCallba
         }
     }
 
+    fun test(gMap: GoogleMap, latLng: LatLng) {
+        gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 2.5f))
+    }
+
     override fun onMapReady(map: GoogleMap) {
         googleMap = map
         googleMap?.mapType = GoogleMap.MAP_TYPE_NORMAL
@@ -106,6 +112,12 @@ class DonutMapFragment : Fragment(R.layout.fragment_donut_map), OnMapReadyCallba
             gMap.uiSettings.isZoomControlsEnabled = true
 
             plotMapMarkers(gMap = gMap)
+
+            gMap.setOnMarkerClickListener { marker ->
+                gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marker.position, 22.5f))
+
+                false
+            }
         }
     }
 }
